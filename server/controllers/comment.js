@@ -1,6 +1,15 @@
 const Comment = require('../models').Comment;
 
 module.exports = {
+    addComment (req, res)   {
+        Comment.create  ({
+            link_id: req.params.id,
+            user_id: req/*url or req?*/,
+            content: req.body.content
+        })
+            .then(comment => res.status(200).send(comment))
+            .catch(error => res.status(400).send(error));
+    },
     getComments (req, res)  {
         Link.findOne({
             where:  {
