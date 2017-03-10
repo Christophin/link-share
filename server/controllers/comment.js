@@ -4,7 +4,7 @@ module.exports = {
     addComment (req, res)   {
         Comment.create  ({
             link_id: req.params.id,
-            user_id: req/*url or req?*/,
+            user_id: req.user.id,
             content: req.body.content
         })
             .then(comment => res.status(200).send(comment))
