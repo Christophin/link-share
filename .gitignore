@@ -1,4 +1,3 @@
 node_modules/
 development.db
 .idea/
-server/config/secrets.js
