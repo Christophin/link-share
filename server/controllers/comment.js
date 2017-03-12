@@ -36,5 +36,16 @@ module.exports = {
                     .catch(error => res.status(400).send(error));
             })
             .catch(error => res.status(400).send(error));
+    },
+    deleteComment(req, res) {
+        Comment.destroy({
+            where: {
+                link_id: req.params.id,
+                id: req.params.comId,
+                user_id: req.user.id
+            }
+        })
+            .then(dest_rows => res.status(201).send('you successfully deleted this comment'))
+            .catch(error => res.status(400).send(error));
     }
 };

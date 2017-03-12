@@ -13,4 +13,5 @@ module.exports = (app) => {
   app.delete('/links/:id', middleware.authenticate, LinkController.deleteLink);
   app.get('/links/:id/comments', CommentController.getComments);
   app.post('/links/:id/comments', middleware.authenticate, CommentController.addComment);
+  app.delete('/links/:id/comments/:comId', middleware.authenticate, CommentController.deleteComment);
 };
