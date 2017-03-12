@@ -6,7 +6,7 @@ module.exports = {
             title: req.body.title,
             url: req.body.url,
             content: req.body.content,
-            user_id: req.body.user_id
+            user_id: req.user.id
         })
             .then(link => res.status(201).send(link))
             .catch(error => res.status(400).send(error));

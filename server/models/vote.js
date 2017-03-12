@@ -1,9 +1,9 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  let Comment = sequelize.define('Comment', {
+  var Vote = sequelize.define('Vote', {
     link_id: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER,
-    content: DataTypes.TEXT
+    vote: DataTypes.BOOLEAN
   }, {
     classMethods: {
       associate: function(models) {
@@ -11,5 +11,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  return Comment;
+  return Vote;
 };
