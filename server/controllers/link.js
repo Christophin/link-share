@@ -17,5 +17,15 @@ module.exports = {
         })
             .then(links => res.status(201).send(links))
             .catch(error => res.status(400).send(error));
+    },
+    deleteLink(req, res) {
+        Link.destroy({
+            where: {
+                id: req.params.id,
+                user_id: req.user.id
+            }
+        })
+            .then(dest_rows => res.status(201).send('you successfully deleted this link'))
+            .catch(error => res.status(400).send(error));
     }
 };
