@@ -1,3 +1,4 @@
 module.exports = {
-    jwtSecret: process.env.APP_SECRET
+    jwtSecret: 'loquacious'
+    // process.env.APP_SECRET
 };

@@ -1,10 +1,11 @@
 const Comment = require('../models').Comment;
+const Link = require('../models').Link;
 
 module.exports = {
     addComment (req, res)   {
         Comment.create  ({
             link_id: req.params.id,
-            user_id: req.user.id,
+            user_id: req.body.user_id,
             content: req.body.content
         })
             .then(comment => res.status(200).send(comment))

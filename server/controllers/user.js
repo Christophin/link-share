@@ -30,7 +30,11 @@ module.exports = {
                 let input = bcrypt.hashSync(req.body.password, user.salt);
                 if (input === user.password)    {
                     let token = jwt.encode({ id: user.id, username: user.username}, appSecrets.jwtSecret);
-                    return res.status(201).send(token)
+                    let json = {
+                        user: user,
+                        token: token
+                    };
+                    return res.status(201).send(json)
                 } else  {
                     return res.status(401).send({message: 'No records match'})
                 }
