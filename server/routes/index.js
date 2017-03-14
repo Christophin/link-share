@@ -7,8 +7,6 @@ const middleware = require('../middleware');
 module.exports = (app) => {
   app.post('/users', UserController.register);
   app.post('/login', UserController.login);
-  // ugh.
-  //app.get('/links/popular', LinkController.popularLinks);
   app.get('/links', LinkController.getLinks);
   app.post('/links', middleware.authenticate, LinkController.postLink);
   app.delete('/links/:id', middleware.authenticate, LinkController.deleteLink);
